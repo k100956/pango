@@ -22,7 +22,7 @@ type Entry struct {
     SourceAddresses []string // unordered
     NegateSource bool
     SourceUsers []string // unordered
-    HipProfiles []string // unordered
+//    HipProfiles []string // unordered
     DestinationZones []string // unordered
     DestinationAddresses []string // unordered
     NegateDestination bool
@@ -85,9 +85,9 @@ func (o *Entry) Defaults() {
         o.SourceUsers = []string{"any"}
     }
 
-    if len(o.HipProfiles) == 0 {
-        o.HipProfiles = []string{"any"}
-    }
+//    if len(o.HipProfiles) == 0 {
+//        o.HipProfiles = []string{"any"}
+//    }
 
     if len(o.DestinationAddresses) == 0 {
         o.DestinationAddresses = []string{"any"}
@@ -124,7 +124,7 @@ func (o *Entry) Copy(s Entry) {
     o.SourceAddresses = s.SourceAddresses
     o.NegateSource = s.NegateSource
     o.SourceUsers = s.SourceUsers
-    o.HipProfiles = s.HipProfiles
+//    o.HipProfiles = s.HipProfiles
     o.DestinationZones = s.DestinationZones
     o.DestinationAddresses = s.DestinationAddresses
     o.NegateDestination = s.NegateDestination
@@ -172,7 +172,7 @@ func (o *container_v1) Normalize() Entry {
         SourceAddresses: util.MemToStr(o.Answer.SourceAddresses),
         NegateSource: util.AsBool(o.Answer.NegateSource),
         SourceUsers: util.MemToStr(o.Answer.SourceUsers),
-        HipProfiles: util.MemToStr(o.Answer.HipProfiles),
+//        HipProfiles: util.MemToStr(o.Answer.HipProfiles),
         DestinationAddresses: util.MemToStr(o.Answer.DestinationAddresses),
         NegateDestination: util.AsBool(o.Answer.NegateDestination),
         Applications: util.MemToStr(o.Answer.Applications),
@@ -220,7 +220,7 @@ type entry_v1 struct {
     SourceAddresses *util.MemberType `xml:"source"`
     NegateSource string `xml:"negate-source"`
     SourceUsers *util.MemberType `xml:"source-user"`
-    HipProfiles *util.MemberType `xml:"hip-profiles"`
+//    HipProfiles *util.MemberType `xml:"hip-profiles"`
     DestinationAddresses *util.MemberType `xml:"destination"`
     NegateDestination string `xml:"negate-destination"`
     Applications *util.MemberType `xml:"application"`
@@ -273,7 +273,7 @@ func specify_v1(e Entry) interface{} {
         SourceAddresses: util.StrToMem(e.SourceAddresses),
         NegateSource: util.YesNo(e.NegateSource),
         SourceUsers: util.StrToMem(e.SourceUsers),
-        HipProfiles: util.StrToMem(e.HipProfiles),
+//        HipProfiles: util.StrToMem(e.HipProfiles),
         DestinationAddresses: util.StrToMem(e.DestinationAddresses),
         NegateDestination: util.YesNo(e.NegateDestination),
         Applications: util.StrToMem(e.Applications),
